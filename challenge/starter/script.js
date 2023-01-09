@@ -88,18 +88,84 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var numberOfCharacters = 10;
+var special = false;
+var numeric = false;
+var lower = false;
+var upper = false;
+var choices = special.concat(numeric, lower, upper)
+
+// Select the button
+var button = document.querySelector("#generate");
+
+// Add an event listener to the button
+button.addEventListener("click", function() {
+  getPasswordOptions();
+});
+
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  numberOfCharacters = prompt("How many characters would you like in your password?");
+  if (numberOfCharacters < 10) {
+  alert("Password length must be at least 10 characters")
+  getPasswordOptions()
+  }
+  if (numberOfCharacters > 65) {
+    alert("Password length can be no more than 64 characters")
+    getPasswordOptions();
+  }
+  if (isNaN(numberOfCharacters)) {
+    alert("Please enter a valid number between 10 and 64")
+    getPasswordOptions();
+  }
 
+  
 }
+  
+
+
+
+// getPasswordOptions() {
+//   passwordLength = prompt("How many characters you want your password to be?");
+//   while (isNaN(passwordLength) || passwordLength < 10 || passwordLength > 65) {
+//     if (passwordLength === null) {
+//       return;
+//     }
+//     alert("Please enter a password length between 10 and 64 characters using numbers only.");
+//     passwordLength = prompt("How many characters you want your password to be?");
+//   }
+
+//   includeLowercase = confirm("Do you want to use lowercase characters?");
+//   includeUppercase = confirm("Do you want to use uppercase characters?");
+//   includeNumeric = confirm("Do you want to use numeric values?");
+//   includeSpecial = confirm("Do you want to use special characters?");
+
+//   if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
+//     alert("Please select at least one character type.");
+//     getPasswordOptions();
+//   }
+// }
+
+
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+const randomIndex = Math.floor(Math.random() * arr.length);
+const item = arr[randomIndex];
+return item;
 }
 
+
+
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword() { 
+  for (var i = 0; i <= length; i++) {
+    var randomNumber = Math.floor(Math.random() * length);
+    password += chars.substring(randomNumber, randomNumber +1);
+   }
+  
 
 }
 
