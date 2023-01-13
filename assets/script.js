@@ -142,8 +142,8 @@ function getRandom(arr) {
   return item;
 }
 
-var whichCharacters = [];
 // create array of the selected characters
+var whichCharacters = [];
 function createArray() {
   if (lower) {
     whichCharacters = whichCharacters.concat(lowerCasedCharacters);
@@ -159,8 +159,6 @@ function createArray() {
   }
   console.log(whichCharacters)
 }
-
-
 
 // Function to generate password with user input
 function generatePassword() {
